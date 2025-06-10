@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Redirecionando para WhatsApp...</title>
+<script>
+  window.onload = function() {
+    const params = new URLSearchParams(window.location.search);
+    const text = params.get('text') || '';
+    const phone = params.get('phone') || '5548999748590';
+    const encodedText = encodeURIComponent(text);
+
+    // Redireciona para WhatsApp
+    window.location.href = `https://wa.me/${phone}?text=${encodedText}`;
+  }
+</script>
+</head>
+<body>
+  <p>Redirecionando para WhatsApp...</p>
+</body>
+</html>
