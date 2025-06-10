@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<title>Redirecionando para WhatsApp...</title>
-<script>
-  window.onload = function() {
+  <meta charset="UTF-8">
+  <title>Redirecionando...</title>
+  <script>
     const params = new URLSearchParams(window.location.search);
-    const text = params.get('text') || '';
-    const phone = params.get('phone') || '5548999748590';
-    const encodedText = encodeURIComponent(text);
+    const phone = params.get("phone");
+    const text = params.get("text");
 
-    // Redireciona para WhatsApp
-    window.location.href = `https://wa.me/${phone}?text=${encodedText}`;
-  }
-</script>
+    if (phone && text) {
+      const link = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      window.location.href = link;
+    } else {
+      document.body.innerText = "Parâmetros inválidos.";
+    }
+  </script>
 </head>
 <body>
-  <p>Redirecionando para WhatsApp...</p>
+  Redirecionando para o WhatsApp...
 </body>
 </html>
